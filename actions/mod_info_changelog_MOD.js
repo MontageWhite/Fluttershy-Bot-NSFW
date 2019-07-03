@@ -27,25 +27,25 @@ subtitle: function(data) {
 },
 
 //---------------------------------------------------------------------
-	 // DBM Mods Manager Variables (Optional but nice to have!)
-	 //
-	 // These are variables that DBM Mods Manager uses to show information
-	 // about the mods for people to see in the list.
-	 //---------------------------------------------------------------------
+// DBM Mods Manager Variables (Optional but nice to have!)
+//
+// These are variables that DBM Mods Manager uses to show information
+// about the mods for people to see in the list.
+//---------------------------------------------------------------------
 
-	 // Who made the mod (If not set, defaults to "DBM Mods")
-	 author: "DBM Mods",
+// Who made the mod (If not set, defaults to "DBM Mods")
+author: "DBM Mods",
 
-	 // The version of the mod (Defaults to 1.0.0)
-	 version: "1.8.8",
+// The version of the mod (Defaults to 1.0.0)
+version: "1.9.5",
 
-	 // A short description to show on the mod line for this mod (Must be on a single line)
-	 short_description: "Changelog overview",
+// A short description to show on the mod line for this mod (Must be on a single line)
+short_description: "Changelog overview",
 
-	 // If it depends on any other mods by name, ex: WrexMODS if the mod uses something from WrexMods
+// If it depends on any other mods by name, ex: WrexMODS if the mod uses something from WrexMods
 
 
-	 //---------------------------------------------------------------------
+//---------------------------------------------------------------------
 
 //---------------------------------------------------------------------
 // Action Storage Function
@@ -85,6 +85,134 @@ html: function(isEvent, data) {
 	return `
 <div>
 <div id ="wrexdiv" style="width: 550px; height: 350px; overflow-y: scroll;">
+	<p>
+	<h2>1.9.5: We fixed it all and YouTube Playlists are around now!</h2>
+		● Added Store Game Info<br>
+		● Added Find Item in List<br>
+		● Added Play YouTube Playlist<br>
+		● Added Store Twitch Info<br>
+		● Added Set Time Restriction<br>
+		● Added Global Data actions<br>
+		● Revised Store Category Info<br>
+		● Revised Control Variable<br>
+		● Revised Store Server Info<br>
+		● Revised YouTube Search<br>
+		● Revised Call Command/Event<br>
+		● Revised Remove Item From List<br>
+		● Revised Find Member<br>
+		● Revised Check If Member<br>
+		● Revised Set Member Voice Channel<br>
+		● Revised Embed Messaging actions<br>
+		● Revised Music System actions<br>
+		● Fixed Transfer Variable<br>
+		● Fixed Send Embed Message<br>
+		● Fixed Await Response Call Action<br>
+		● Fixed Await Reaction Call Action<br>
+		● Fixed Edit Channel<br>
+		● Fixed Store Channel Info<br>
+	</p>
+	<p>
+	<h2>1.9.4: owo Is this a release I see? A lot of revised mods.</h2>
+		● Added Convert Seconds to Days<br>
+		● Added Download File<br>
+		● Renamed Convert a Variable<br>
+		● Revised Add Embed Field<br>
+		● Revised Await Response Call Action<br>
+		● Revised Check Member Data<br>
+		● Revised Check Server Data<br>
+		● Revised Check Variable<br>
+		● Revised Edit Channel<br>
+		● Revised Edit Message<br>
+		● Revised Find Emoji in Message<br>
+		● Revised Member Data List<br>
+		● Revised Store Category Info<br>
+		● Revised Store Message Info<br>
+		● Revised Youtube Info<br>
+	</p>
+	<p>
+	<h2>1.9.3: Yet another update</h2>
+		● Added RSS actions<br>
+		● Added Speedtest action<br>
+		● Added Message URL to Store Message Info<br>
+		● Added Send Embed to Webhook<br>
+		● Added Restart Bot<br>
+		● Added Create Webhook<br>
+		● Removed Set AFK Timeout<br>
+		● Fixed Set Category using ID<br>
+		● Fixed _id of Loop Through List<br>
+		● Updated Convert Variable<br>
+		● Updated Set Role Permissions<br>
+		● Updated Control Variable<br>
+		● Moved smaller, not always needed mods, to a separated folder<br>
+	</p>
+	<p>
+	<h2>1.9.2: Update Update</h2>
+		● Updated "Send Stats to DBL" - Removed automated success message from the console<br>
+		● Updated "Convert List To Text" - Added sort option<br>
+		● Updated "Store Audio Info" - Added current song URL<br>
+		● Updated "Custom Image Effect"<br>
+		● Fixed "Find Custom Emoji in Server"<br>
+		● Fixed "Find Category"<br>
+		● Fixed "Add Reaction"<br>
+		● Fixed "Set Role Permissions"<br>
+		● Fixed "Create Channel" - Set Category ID<br>
+		● Merged "Store Role Info Things" with "Store Role Info"<br>
+		● Merged "Store Member Things" with "Store Member Info"<br>
+		● Added "Set AFK Channel"<br>
+		● Added "Math Operation Plus"<br>
+		● Added Donators to the "Welcome" action<br>
+	</p>
+	<p>
+	<h2>1.9.1: Bunch of new mods, and yes, we now have the reaction stuff</h2>
+		● Added Set Role Voice Channel Perms<br>
+		● Added Set Member Voice Channel Perms<br>
+		● Added Find Category<br>
+		● Added Change Prefix<br>
+		● Added Set Role Permissions<br>
+		● Added Get Song Lyrics<br>
+		● Added Get Bot Stats From DBXYZ<br>
+		● Added Check If User Reacted<br>
+		● Added Remove Reaction<br>
+		● Added Find Reaction<br>
+		● Added Store Game Server Info<br>
+		● Added Find Custom Emoji In Server<br>
+		● Merged Send Image MOD with Send Image<br>
+		● Merged Store Server Things with Store Server Info<br>
+		● Merged Store Message Things with Store Message Info<br>
+		● Merged Store Voice Channel Things with Store Voice Channel Info<br>
+		● Merged Store Voice Channel Things with Store Voice Channel Info<br>
+		● Merged Store Channel Things with Store Channel Info<br>
+		● Updated Create Text Channel<br>
+		● Updated DBL actions<br>
+		● Updated Create Voice Channel<br>
+		● Updated Store Reaction Info<br>
+		● Updated Remove Message Reactions<br>
+		● Updated Add Reaction<br>
+		● Fixed Find Member<br>
+		● Fixed Send To Webhook<br>
+		● Fixed Send Embed Message<br>
+		● Fixed Set Bot Activity
+	</p>
+	<p>
+		<h2>1.9: New Mods, Bug fixes and general quality of life improvements!</h2>
+		● Added Store Invite Info<br>
+		● Added Store Emoji Info<br>
+		● Added Basic Math Operation<br>
+		● Added Edit Embed Message<br>
+		● Better YouTube Search<br>
+		● Fixes for Parse From Stored JSON<br>
+		● Fixes for Store Bot Client Info<br>
+		● Fixes for Set Bot Activity<br>
+		● Fixes for Store Reaction Info<br>
+		● Fixes for Run SQL Query<br>
+		● Fixes for Webhook actions<br>
+		● Fixes for Get Item from List<br>
+		● Updated Check If Member<br>
+		● Merged Send Embed Message MOD with Send Embed Message<br>
+		● Merged Store Channel Things with Store Channel Info<br>
+		● Added Await Response (probably not what you are looking for...)<br>
+		● Many little bug fixes
+	</p>
 	<p>
 		<h2>1.8.9: HUGE fixes for everyone!</h2>
 		● Added Math Operation mod! ~iAmaury<br>

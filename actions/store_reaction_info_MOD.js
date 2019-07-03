@@ -14,7 +14,7 @@ name: "Store Reaction Info",
 // This is the section the action will fall into.
 //---------------------------------------------------------------------
 
-section: "Messaging",
+section: "Reaction Control",
 
 //---------------------------------------------------------------------
 // Action Subtitle
@@ -24,7 +24,7 @@ section: "Messaging",
 
 subtitle: function(data) {
 	const reaction = ['You cheater!', 'Temp Variable', 'Server Variable', 'Global Variable'];
-	const info = ['Message Object', 'Bot reacted?', 'User List', 'Emoji Name', 'Reaction Count', 'User'];
+	const info = ['Message Object', 'Bot reacted?', 'Users Who Reacted List', 'Emoji Name', 'Reaction Count', 'First User to React', 'Random User to React', 'Last User to React'];
 	return `${reaction[parseInt(data.reaction)]} - ${info[parseInt(data.info)]}`;
 },
 
@@ -36,17 +36,17 @@ subtitle: function(data) {
 //---------------------------------------------------------------------
 
 // Who made the mod (If not set, defaults to "DBM Mods")
-author: "Lasse",
+author: "Lasse & MrGold",
 
 // The version of the mod (Defaults to 1.0.0)
-version: "1.8.8", //Added in 1.8.8
+version: "1.9.1", //Added in 1.8.8
 
 // A short description to show on the mod line for this mod (Must be on a single line)
 short_description: "Stores Messages Reaction information",
 
 // If it depends on any other mods by name, ex: WrexMODS if the mod uses something from WrexMods
 depends_on_mods: [
-{name:'custommods',path:'abb_custom_methods_MOD.js'}
+{name:'WrexMods',path:'aaa_wrexmods_dependencies_MOD.js'}
 ],
 
 
@@ -78,6 +78,12 @@ variableStorage: function(data, varType) {
 			dataType = "Number";
 			break;
 		case 5:
+			dataType = "User";
+			break;
+		case 6:
+			dataType = "User";
+			break;
+		case 7:
 			dataType = "User";
 			break;
 	}
@@ -115,7 +121,7 @@ html: function(isEvent, data) {
 	<div>
 		<p>
 			<u>Mod Info:</u><br>
-			Created by Lasse!
+			Created by Lasse & MrGold!
 		</p>
 	</div><br>
 <div>
@@ -135,11 +141,13 @@ html: function(isEvent, data) {
 		Source Info:<br>
 		<select id="info" class="round">
 			<option value="0" selected>Message Object</option>
-			<option value="5">User Who Reacted</option>
+			<option value="5">First User to React</option>
+			<option value="6">Random User to React</option>
+			<option value="7">Last User to React</option>
 			<option value="1">Bot Reacted?</option>
 			<option value="2">User Who Reacted List</option>
 			<option value="3">Emoji Name</option>
-			<option value="4">Same Reaction Count</option>
+			<option value="4">Reaction Count</option>
 		</select>
 	</div>
 </div><br>
@@ -184,10 +192,9 @@ action: function(cache) {
 	const reaction = parseInt(data.reaction);
 	const varName = this.evalMessage(data.varName, cache);
 	const info = parseInt(data.info);
-	var custommethods = this.getcustommethods(); //Find abb_custom_methods_MOD
-	const rea = custommethods.getReaction(reaction, varName, cache); //Get Reaction
-	if(!custommethods) console.log('Store Reaction Info ERROR: You need abb_custom_methods_MOD.js to use this modification'); //If abb_custom_methods_MOD.js file is missing -> Error
-	if(custommethods.Version < "1.0.1") console.log('Store Reaction Info ERROR: Please update abb_custom_methods_MOD.js to 1.0.1 or newer to use this modification'); //If custommethods are too old -> Error
+	var WrexMods = this.getWrexMods(); //Find aaa_wrexmods_dependencies_MOD
+	const rea = WrexMods.getReaction(reaction, varName, cache); //Get Reaction
+	if(!WrexMods) return;
 	if(!rea) {
 		console.log('This is not a reaction'); //Variable is not a reaction -> Error
 		this.callNextAction(cache);
@@ -210,8 +217,16 @@ action: function(cache) {
 			result = rea.count; //Number (user+bots) who reacted like this
 			break;
 		case 5:
+			const firstid = rea.users.firstKey(); //Stores first user ID reacted
+			result = cache.server.members.find(element => element.id === firstid);
+			break;
+		case 6:
+			const randomid = rea.users.randomKey(); //Stores random user ID reacted
+			result = cache.server.members.find(element => element.id === randomid);
+			break;
+		case 7:
 			const lastid = rea.users.lastKey(); //Stores last user ID reacted
-			result = cache.server.members.find('id', lastid);
+			result = cache.server.members.find(element => element.id === lastid);
 			break;
 		default:
 			break;
